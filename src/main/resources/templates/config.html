@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <a href="?lang=en">en</a>
+    <a href="?lang=ru">ru</a>
+    <h2 th:text="#{hello}"></h2>
+
+
+    <div class="panel-body">
+
+        <form th:action="@{/config}" method="post" modelAttribute="configForm"  th:object="${questionDto}" >
+            <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
+            <h2 th:text="${question}"></h2>
+            <p>TITLE:</p>
+            <h2 th:text="${title}"></h2>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="title"
+                       name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="description"
+                       name="description">
+            </div>
+
+            <div class="form-group">
+                <label for="help">Help</label>
+                <input type="text" class="form-control" id="help" placeholder="help"
+                       name="help">
+            </div>
+
+            <div class="form-group">
+                <label for="answer">Answer</label>
+                <input type="text" class="form-control" id="answer" placeholder="answer"
+                       name="answer">
+            </div>
+
+            <div class="form-group">
+            <select th:field="*{gameId}">
+                <option th:each="game : ${games}"
+                        th:value="${game.id}"
+                        th:text="${game.id}">
+                </option>
+            </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Add question</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

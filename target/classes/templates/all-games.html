@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>-->
+</head>
+<body>
+<a href="?lang=en">en</a>
+<a href="?lang=ru">ru</a>
+<div id = "all-games">
+    <h2 th:text="#{title.all.questions}"></h2>
+</div>
+<div id = "content">
+    <form th:action="@{/all-games}" method="post" modelAttribute="configForm"  th:object="${games}" >
+    <select >
+        <option th:each="game : ${games}"
+                th:value="${game.id}"
+                th:text="${game.id}">
+        </option>
+    </select>
+
+    <table class="datatable">
+        <thead>
+        <tr>
+            <th th:text="#{question.id}"></th>
+            <th th:text="#{question.title}"></th>
+            <th th:text="#{question.author}"></th>
+            <th th:text="#{question.description}"></th>
+            <th th:text="#{question.help}"></th>
+            <th>Team</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="game: ${games}">
+            <td th:text="${game.id}"></td>
+            <td th:text="${game.teamScore}"></td>
+            <td th:text="${game.viewerScore}"></td>
+            <td><a href="/admin" th:value="${game.id}">open</a> </td>
+            <td> <button type="submit" class="btn btn-default">Choose game</button></td>
+        </tr>
+        
+        </tbody>
+    </table>
+    </form>
+</div>
+</body>
+
+</html>

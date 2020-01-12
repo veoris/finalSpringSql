@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>-->
+</head>
+<body>
+<a href="?lang=en">en</a>
+<a href="?lang=ru">ru</a>
+<div id = "questions">
+    <h2 th:text="#{title.all.questions}"></h2>
+</div>
+<div id = "content">
+    <table class="datatable">
+        <thead>
+        <tr>
+            <th th:text="#{question.id}"></th>
+            <th th:text="#{question.title}"></th>
+            <th th:text="#{question.description}"></th>
+            <th th:text="#{question.help}"></th>
+            <th>Answer</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:if="${questions.empty}">
+            <td colspan="2" th:text="#{questions.empty}"> </td>
+        </tr>
+        <tr th:each="question: ${questions}">
+            <td><span th:text="${question.id}"> Id </span></td>
+            <td><span th:text="${question.title}"> Title </span></td>
+            <td><span th:text="${question.description}"> Description </span></td>
+            <td><span th:text="${question.help}"> Help </span></td>
+            <td><span th:text="${question.answer}"> Answer </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

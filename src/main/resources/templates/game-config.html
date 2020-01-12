@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+<div class="container">
+    <a href="?lang=en">en</a>
+    <a href="?lang=ru">ru</a>
+    <h2 th:text="#{hello}"></h2>
+    <div class="row" >
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default" style="margin-top:45px">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Registration new gameConfig</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form th:action="@{/game-config}" th:method="post" modelAttribute="gameRegForm" th:object="${gameDto}"  >
+                        <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
+
+
+                        <select  th:field="*{teamId}">
+                            <option th:each="team : ${teams}"
+                                    th:value="${team.id}"
+                                    th:text="${team.name}">
+                            </option>
+                        </select>
+
+
+
+                        <table class="datatable">
+                            <thead>
+                            <tr>
+                                <th th:text="#{username}"></th>
+                                <th th:text="#{user.firstName}"></th>
+                                <th th:text="#{user.add.team}"></th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <tr th:each="question: ${questions}">
+                                <td><span th:text="${question.title}">Title</span></td>
+                                <td><span th:text="${question.description}">Description</span></td>
+                                <td> <input type="checkbox" name="question_id" th:value="${question.title}"/></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <button type="submit" class="btn btn-default">Registration</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

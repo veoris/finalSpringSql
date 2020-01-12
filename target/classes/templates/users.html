@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>-->
+</head>
+<body>
+<a href="?lang=en">en</a>
+<a href="?lang=ru">ru</a>
+<div id = "all_users">
+    <h2 th:text="#{title.all.users}"></h2>
+</div>
+<div id = "content">
+    <table class="datatable">
+        <thead>
+        <tr>
+            <th th:text="#{user.id}"></th>
+            <th th:text="#{username}"></th>
+            <th th:text="#{accountNonExpired}"></th>
+            <th th:text="#{user.age}"></th>
+            <th th:text="#{user.password}"></th>
+            <th th:text="#{user.authorities}"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:if="${users.empty}">
+            <td colspan="2" th:text="#{users.empty}"> </td>
+        </tr>
+        <tr th:each="user: ${users}">
+            <td><span th:text="${user.id}"> Id </span></td>
+            <td><span th:text="${user.username}">Login </span></td>
+            <td><span th:text="${user.accountNonExpired}"> accountNonExpired </span></td>
+            <td><span th:text="${user.age}"> Age </span></td>
+            <td><span th:text="${user.password}"> Password </span></td>
+            <td><span th:text="${user.authorities}"> Authorities </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

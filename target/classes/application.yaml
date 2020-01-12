@@ -1,0 +1,23 @@
+server:
+  port: 8090
+spring:
+  mandatory-file-encoding: UTF-8
+
+  thymeleaf:
+    mode: HTML
+    cache: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    database: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/game?serverTimezone=UTC
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+  data:
+    jpa:
+      repositories:
+        enabled: true
