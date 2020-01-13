@@ -19,12 +19,12 @@
     <form th:action="@{/answer}" method="post" modelAttribute="chooseTeam" th:object="${gameDto}">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-        <tr th:each="question: ${questions}">
-            <td><span th:text="${question.title}">Title</span></td>
-            <td><span th:text="${question.description}">Title</span></td>
-            <td><span th:text="${question.answer}">Title</span></td>
+
+            <td><span th:text="${questions.title}">Title</span></td>
+            <td><span th:text="${questions.description}">Title</span></td>
+            <td><span th:text="${questions.answer}">Title</span></td>
             <td><span th:text="${teamAnswer}">Title</span></td>
-        </tr>
+
         <button type="submit" class="btn btn-default" name="right" value="true">Right</button>
         <button type="submit" class="btn btn-default" name="wrong" value="false">Wrong</button>
         <a href="/game" class="button">Play game</a>

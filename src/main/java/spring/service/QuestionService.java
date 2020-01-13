@@ -25,8 +25,12 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
 
+public Question findQuestionById(Long id){
+     return questionRepository.findQuestionById(id);
+}
 
-    public Optional<Question> loadQuestionByTitle(@NonNull String title) throws UsernameNotFoundException {
+
+    public Optional<Question> loadQuestionByTitle(@NonNull String title) {
         return  Optional.ofNullable(questionRepository.findByTitle(title));
     }
 

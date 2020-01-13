@@ -52,13 +52,13 @@ public Game findGameById(Long id){
         return gameRepository.getId(username);
     }
 
-    public List<String> getGameQuestions(String username){
-        return gameRepository.getGameQuestions(username);
+    public List<String> getGameQuestions(String username, Long gameId){
+        return gameRepository.getGameQuestions(username, gameId);
     }
 
-    public Question getShuffledQuestions(String username){
+    public Question getShuffledQuestions(String username,Long gameId){
         List<Question> questions = new ArrayList<>();
-        for (String title:getGameQuestions(username)) {
+        for (String title:getGameQuestions(username,gameId)) {
             questions.add(questionRepository.findByTitle(title));
             //gameRepository.getTeamScore()+gameRepository.getViewerScore();
         }
@@ -67,12 +67,17 @@ public Game findGameById(Long id){
         return questions.get(gameRepository.getTeamScore(getLastGameId(username))+gameRepository.getViewerScore(getLastGameId(username)));
     }
 
+    public Long getCurrentQuestionId(Long gameId){
+        return gameRepository.getCurrentQuestionId(gameId);
+    }
 
-    public void setCurrentAnswer(String answer, Long gameId){
+    public void setCurrentAnswer(String answer, Long gameId, Long questionId){
         Game game = gameRepository.findGameById(gameId);
         game.setCurrentAnswer(answer);
+        game.setCurrentQuestionId(questionId);
         gameRepository.save(game);
     }
+
 
     public void increaseTeamScore(Long gameId){
         Game game = gameRepository.findGameById(gameId);

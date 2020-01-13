@@ -7,12 +7,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import spring.dto.GameDTO;
 import spring.dto.QuestionDTO;
+import spring.dto.UserDTO;
 import spring.entity.Game;
 import spring.entity.Question;
 import spring.service.GameService;
@@ -48,21 +46,12 @@ public class GameController {
     }
 
 
-    @GetMapping("/all-games")
-    public String getAllGames(Model model) {
-        model.addAttribute("games", gameService.getAllGames());
-        return "all-games" ;
-    }
 
     @PostMapping("/game-config")
     public String addGame(GameDTO gameDTO, QuestionDTO questionDTO) {
         gameService.saveGame(Game.builder()
                 .teamId(gameDTO.getTeamId())
                 .build());
-//        System.out.println("vbcddscsaddsacsdc " + questionDTO.getTitle());
-//
-//        questionService.setGameId(gameDTO.getTeamId(),questionDTO.getTitle());
-
         //TODO checkbox get gameId and insert in questions.table (maybe on the next page)
         //TODO return game page
         return "config";
@@ -94,43 +83,81 @@ public class GameController {
 
 
         //TODO
-
+        System.out.println(user.getUsername());
+        System.out.println(gameService.getLastGameId(user.getUsername()));
         model.addAttribute("game", gameService.findGameById(gameService.getLastGameId(user.getUsername())));
         // model.addAttribute("questions", gameService.getShuffledQuestions());
-        model.addAttribute("questions", gameService.getShuffledQuestions(user.getUsername()));
+        model.addAttribute("questions", gameService.getShuffledQuestions(user.getUsername(),gameService.getLastGameId(user.getUsername())));
         return "game";
     }
 
     @PostMapping("/game")
     public String answer(GameDTO gameDto) {
         //TODO warning hardcode! get game_id
-        gameService.setCurrentAnswer(gameDto.getCurrentAnswer(), (long) 59);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+        gameService.setCurrentAnswer(gameDto.getCurrentAnswer(), gameService.getLastGameId(user.getUsername()), gameService.getShuffledQuestions(user.getUsername(),gameService.getLastGameId(user.getUsername())).getId());
+
         return "redirect:/game";
     }
 
 
 
-    @GetMapping("/answer")
-    public String answer(Model model, GameDTO gameDTO) {
+
+    //@GetMapping("/all-games")
+    @RequestMapping(value = "/all-games", method = RequestMethod.GET)
+    public String getAllGames(Model model) {
+        GameDTO gameDTO = new GameDTO();
+        model.addAttribute("games", gameService.getAllGames());
+        model.addAttribute("gameDto", gameDTO);
+        //model.addAttribute("questions", questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())));
+        System.out.println(gameDTO.getTeamScore());
+//        System.out.println("vvvvvvv "+gameService.getCurrentQuestionId(gameDTO.getGameId()));
+        return "all-games";
+    }
+
+    //@PostMapping("/all-games")
+    @RequestMapping(value="/all-games", method=RequestMethod.POST)
+    public String chooseGame(@ModelAttribute GameDTO gameDTO, Model model) {
+        //------------------------------------------------------------------!!!!!!!!!!!!!!
+
+        System.out.println("vvvvvvv2222 " + gameDTO.getTeamScore());
+        System.out.println(questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())));
+        Long id = gameService.findGameById((long) gameDTO.getTeamScore()).getId();
+        Long id1 =questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())).getId()-1;
+        model.addAttribute("questions", questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())));
+        //model.addAttribute("question", questionService.findQuestionById(gameService.getCurrentQuestionId(gameDTO.getGameId())));
+        return "redirect:/answer/"+id;
+
+
+    }
+
+    @GetMapping("/answer/{id}")
+    public String answer(@PathVariable(value = "id") Long id ,GameDTO gameDTO,Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         model.addAttribute("gameDto", gameDTO);
         //TODO
 
-        // model.addAttribute("questions", gameService.getShuffledQuestions());
-        model.addAttribute("questions", gameService.getShuffledQuestions(user.getUsername()));
-        model.addAttribute("teamAnswer",gameService.findGameById(gameService.getLastGameId(user.getUsername())).getCurrentAnswer());
+        //System.out.println("question id admin "+gameService.getCurrentQuestionId(id));
+        System.out.println("question id admin "+gameService.findGameById(id).getCurrentQuestionId());
+        // model.addAttribute("questions", questionService.findQuestionById(gameService.getCurrentQuestionId(gameDTO.getGameId())));
+        System.out.println(questionService.findQuestionById(gameService.getCurrentQuestionId(id)));
+        //model.addAttribute("questions", gameService.getShuffledQuestions(user.getUsername()));
+        model.addAttribute("questions", questionService.findQuestionById(gameService.findGameById(id).getCurrentQuestionId()));
+        model.addAttribute("teamAnswer", gameService.findGameById(id).getCurrentAnswer());
         return "answer";
     }
 
 
-    @PostMapping("/answer")
-    @RequestMapping(params = "right", method = RequestMethod.POST)
+    //@PostMapping("/answer")
+    @RequestMapping(value = "/answer",params = "right", method = RequestMethod.POST)
     public String increaseTeamScore() {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         gameService.increaseTeamScore(gameService.getLastGameId(user.getUsername()));
-        return "redirect:/game";
+        return "redirect:/all-games";
     }
 
     @PostMapping("/answer")
@@ -139,7 +166,7 @@ public class GameController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         gameService.increaseViewerScore(gameService.getLastGameId(user.getUsername()));
-        return "redirect:/game";
+        return "redirect:/all-games";
     }
 
 
@@ -152,7 +179,6 @@ public class GameController {
         model.addAttribute("question", questionService.loadQuestionByTitle(questionDTO.getTitle()));
         return "game-answer";
     }
-
 
 
 }

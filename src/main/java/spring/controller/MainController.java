@@ -71,7 +71,7 @@ public class MainController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         userService.setTeamId(user.getUsername(),userDTO.getTeamId());
-        return "teams";
+        return "redirect:/";
 
 
     }

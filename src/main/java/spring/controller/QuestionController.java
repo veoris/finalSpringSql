@@ -60,7 +60,7 @@ public class QuestionController {
             return "config";
         }
 
-        return "config";
+        return "redirect:/config";
     }
 
 }

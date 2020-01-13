@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="daaf76d6-d971-487b-babe-2d145467a93c" name="Default Changelist" comment="" />
+    <list default="true" id="daaf76d6-d971-487b-babe-2d145467a93c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/dto/GameDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/dto/GameDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/entity/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/repository/GameRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/all-games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/all-games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/answer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game-config.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game-config.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/all-games.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/all-games.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +66,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/chgk" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1VUm93RMJj2lWHR2qhbeXWk4rTt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -77,7 +94,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -252,12 +269,19 @@
       <workItem from="1578665134198" duration="20120000" />
       <workItem from="1578730377675" duration="10461000" />
       <workItem from="1578752928736" duration="31616000" />
-      <workItem from="1578828462884" duration="18077000" />
+      <workItem from="1578828462884" duration="24145000" />
+      <workItem from="1578904676377" duration="12950000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/chgk" />
+      <path value="$PROJECT_DIR$/finalSpringSql" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Assign_Data_Sources" timestamp="1578616117363">
@@ -300,38 +324,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578773871523" />
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1578862425197">
+    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425197" />
-    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1578862425196">
+    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425196" />
-    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1578862425196">
+    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425196" />
-    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1578862425196">
+    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425196" />
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1578862425197">
+    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1578918490826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425197" />
-    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1578862425197">
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490826" />
+    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425197" />
-    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1578862425197">
+    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425197" />
-    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1578862425197">
+    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
+    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1578918490825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578862425197" />
+    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578918490825" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1578694132083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -352,10 +376,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="175" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578605165187" />
-    <state x="440" y="95" key="SettingsEditor" timestamp="1577527057326">
+    <state x="440" y="95" key="SettingsEditor" timestamp="1578863330079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577527057326" />
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578863330079" />
     <state x="859" y="410" width="326" height="235" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1578612625041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -368,10 +392,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="818" y="267" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578612207080" />
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578831696331">
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1578905501520">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578831696331" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578905501520" />
     <state x="666" y="139" key="refactoring.ChangeSignatureDialog" timestamp="1577348242419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -25,6 +25,7 @@ public class Game {
     private int viewerScore;
     private int teamScore;
     private String currentAnswer;
+    private Long currentQuestionId;
 
     //TODO
     //private Date date;

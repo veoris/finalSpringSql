@@ -9,4 +9,6 @@ public class GameDTO {
     private Long teamId;
     private Long gameId;
     private String currentAnswer;
+    private Long currentQuestionId;
+    private Long id;
 }
