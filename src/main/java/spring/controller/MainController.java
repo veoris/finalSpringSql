@@ -6,14 +6,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import spring.dto.TeamDTO;
 import spring.dto.UserDTO;
-import spring.entity.Role;
-import spring.entity.User;
 import spring.service.TeamService;
 import spring.service.UserService;
 
@@ -43,7 +39,6 @@ public class MainController {
         model.addAttribute("teams", teamService.getAllTeams());
         model.addAttribute("userDto", new UserDTO());
         model.addAttribute("role", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(joining(",")));
-        System.out.println(user + "***********************************************");
         return "index";
     }
 
@@ -51,7 +46,6 @@ public class MainController {
     public String getLogin(@RequestParam(value = "error", required = false) String error,
                            @RequestParam(value = "logout", required = false) String logout,
                            Model model) {
-        log.info("bla-bla-bla");
         model.addAttribute("error", error != null);
         model.addAttribute("logout", logout != null);
         return "login";
@@ -76,12 +70,5 @@ public class MainController {
 
     }
 
-
-  /*  @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String showAddUserForm( Model model) {
-        return "index";
-
-    }
-*/
 
 }

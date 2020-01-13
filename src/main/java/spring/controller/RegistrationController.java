@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import spring.service.UserService;
 
 
-import java.util.Optional;
+
 @Slf4j
 @Controller
 public class RegistrationController {
@@ -51,15 +51,8 @@ public class RegistrationController {
                     .credentialsNonExpired(true)
                     .enabled(true)
                     .build());
-            System.out.println(user);
-            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
-            // userService.saveNewUser(user);
         } catch (Exception ex) {
             log.info(user.getUsername() + " login is already exist");
-            System.out.println(user);
-            System.out.println(user.getUsername());
-            System.out.println(user.getPassword());
-            System.out.println("-----------------------------------------------------------------------------");
             model.addAttribute("message", "login is already exist");
             return "registration";
         }

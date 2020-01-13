@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import spring.dto.QuestionDTO;
-import spring.dto.UserDTO;
 import spring.entity.Question;
 import spring.service.GameService;
 import spring.service.QuestionService;
@@ -54,10 +53,8 @@ public class QuestionController {
             );
 
         } catch (Exception ex) {
-
-            System.out.println("-----------------------------------------------------------------------------");
             model.addAttribute("message", "Question is already exist");
-            return "config";
+            return "redirect:/config";
         }
 
         return "redirect:/config";

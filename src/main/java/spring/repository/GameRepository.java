@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import spring.entity.Game;
-import spring.entity.Question;
-import spring.entity.QuestionsResult;
 
 import java.util.List;
 
@@ -20,7 +18,6 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     @Query(value = "SELECT current_question_id FROM game.games where games.id=?1", nativeQuery = true)
     Long getCurrentQuestionId(Long gameId);
 
-    // @Query(value = "SELECT MAX(id) FROM games", nativeQuery = true)
     @Query(value = "select max(games.id) from games join questions on questions.game_id=games.id join teams on games.team_id=teams.id join users on teams.id=users.team_id and users.username =?1 ", nativeQuery = true)
     Long getId(String username);
 

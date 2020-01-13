@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import spring.dto.TeamDTO;
-import spring.entity.Question;
 import spring.entity.Team;
 import spring.service.TeamService;
 import spring.service.UserService;
@@ -46,14 +45,9 @@ public class TeamController {
                     .build());
 
         } catch (Exception ex) {
-
-            System.out.println("-----------------------------------------------------------------------------");
             model.addAttribute("message", "Team is already exist");
             return "team";
         }
-
-
-
         return "team";
     }
 }

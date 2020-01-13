@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import spring.entity.Team;
-import spring.entity.User;
 import spring.repository.TeamRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,13 +14,10 @@ public class TeamService {
 
     private TeamRepository teamRepository;
 
-
     @Autowired
     public TeamService(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
-
     }
-
 
     public Optional<Team> loadTeamByName(@NonNull String name) throws UsernameNotFoundException {
         return Optional.ofNullable(teamRepository.findByName(name));
@@ -31,7 +25,6 @@ public class TeamService {
 
     public List<Team> getAllTeams() {
         //TODO checking for an empty user list
-
         return teamRepository.findAll();
     }
 

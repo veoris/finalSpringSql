@@ -1,8 +1,6 @@
 package spring.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import spring.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import spring.repository.UserRepository;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class UserService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    @Autowired(required = true)
+    @Autowired()
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -35,7 +32,6 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.singleton(user.getRole()));
     }
 
-
     public List<User> getAllUsers() {
         //TODO checking for an empty user list
         return userRepository.findAll();
@@ -45,13 +41,6 @@ public class UserService implements UserDetailsService {
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
-
-
-
-
-
-
-
 
     public User setTeamId(String username, Long teamId){
         User user = userRepository.findByUsername(username);

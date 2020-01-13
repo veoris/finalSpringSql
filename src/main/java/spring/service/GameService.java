@@ -3,14 +3,12 @@ package spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import spring.entity.Game;
 import spring.entity.Question;
 import spring.repository.GameRepository;
 import spring.repository.QuestionRepository;
 import spring.repository.TeamRepository;
 import spring.repository.UserRepository;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -60,9 +58,9 @@ public Game findGameById(Long id){
         List<Question> questions = new ArrayList<>();
         for (String title:getGameQuestions(username,gameId)) {
             questions.add(questionRepository.findByTitle(title));
-            //gameRepository.getTeamScore()+gameRepository.getViewerScore();
+
         }
-        //TODO shuffle don't mix list of questions
+        //TODO shuffle
         Collections.shuffle(questions, new Random(3));
         return questions.get(gameRepository.getTeamScore(getLastGameId(username))+gameRepository.getViewerScore(getLastGameId(username)));
     }
@@ -91,13 +89,5 @@ public Game findGameById(Long id){
         gameRepository.save(game);
     }
 
-
-
-//    public Question getQuestion(){
-//        int number = gameRepository.findGameById(id).getTeamScore() +  gameRepository.findGameById(id).getViewerScore();
-//        //int number = gameRepository.getTeamScore() + gameRepository.getViewerScore();
-//        System.out.println("////*** "+number);
-//        return  getShuffledQuestions().get(number);
-//    }
 }
 

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Indexed;
 
 
 import javax.persistence.*;
@@ -35,7 +34,6 @@ public class Question {
     private String answer;
 
     private Long gameId;
-
     private boolean answered;
 
 }
