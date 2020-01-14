@@ -3,6 +3,7 @@ package spring.service;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spring.dto.QuestionDTO;
 import spring.entity.Question;
 import spring.repository.QuestionRepository;
 
@@ -31,8 +32,16 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
-    public void saveNewQuestion(Question question) throws Exception {
-        questionRepository.save(question);
+    public void saveNewQuestion(QuestionDTO questionDTO)
+    {
+        questionRepository.save(Question.builder()
+                .title(questionDTO.getTitle())
+                .description(questionDTO.getDescription())
+                .answer(questionDTO.getAnswer())
+                .help(questionDTO.getHelp())
+                .gameId(questionDTO.getGameId())
+                .answered(false)
+                .build());
     }
 }
 

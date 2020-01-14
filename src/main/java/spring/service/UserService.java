@@ -37,16 +37,15 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public void saveNewUser(User user) throws Exception {
+    public void saveNewUser(User user) {
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public User setTeamId(String username, Long teamId){
+    public void setTeamId(String username, Long teamId){
         User user = userRepository.findByUsername(username);
         user.setTeamId(teamId);
-        User updateUser = userRepository.save(user);
-        return updateUser;
+        userRepository.save(user);
     }
 
 

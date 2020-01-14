@@ -13,7 +13,7 @@ import spring.entity.Game;
 import spring.service.GameService;
 import spring.service.QuestionService;
 import spring.service.TeamService;
-import spring.service.UserService;
+
 
 @Controller
 
@@ -22,14 +22,12 @@ public class GameController {
     private GameService gameService;
     private QuestionService questionService;
     private TeamService teamService;
-    private UserService userService;
 
     @Autowired
-    public GameController(GameService gameService, QuestionService questionService, TeamService teamService, UserService userService) {
+    public GameController(GameService gameService, QuestionService questionService, TeamService teamService) {
         this.gameService = gameService;
         this.questionService = questionService;
         this.teamService = teamService;
-        this.userService = userService;
     }
 
     @GetMapping("/game-config")
@@ -44,11 +42,7 @@ public class GameController {
 
     @PostMapping("/game-config")
     public String addGame(GameDTO gameDTO) {
-        gameService.saveGame(Game.builder()
-                .teamId(gameDTO.getTeamId())
-                .build());
-        //TODO checkbox get gameId and insert in questions.table (maybe on the next page)
-        //TODO return game page
+        gameService.saveGame(gameDTO);
         return "redirect:/config";
     }
 
@@ -62,14 +56,13 @@ public class GameController {
 
     @PostMapping("/game-questions")
     public String addGameQuestions(GameDTO gameDTO) {
-        //TODO checkbox get gameId and insert in questions.table (maybe on the next page)
-        //TODO return game page
+        //TODO
         return "game-questions";
     }
 
 
     @GetMapping("/game")
-    public String gamePlay(Model model, GameDTO gameDTO) {
+    public String gamePlay(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         //TODO
@@ -80,10 +73,10 @@ public class GameController {
 
     @PostMapping("/game")
     public String answer(GameDTO gameDto) {
-        //TODO warning hardcode! get game_id
+        //TODO
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
-        gameService.setCurrentAnswer(gameDto.getCurrentAnswer(), gameService.getLastGameId(user.getUsername()), gameService.getShuffledQuestions(user.getUsername(),gameService.getLastGameId(user.getUsername())).getId());
+        gameService.currentAnswer(user,gameDto);
         return "redirect:/game";
     }
 
@@ -100,15 +93,13 @@ public class GameController {
     @RequestMapping(value="/all-games", method=RequestMethod.POST)
     public String chooseGame(@ModelAttribute GameDTO gameDTO, Model model) {
         Long id = gameService.findGameById((long) gameDTO.getTeamScore()).getId();
-        Long id1 =questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())).getId()-1;
         model.addAttribute("questions", questionService.findQuestionById(gameService.getCurrentQuestionId((long) gameDTO.getTeamScore())));
         return "redirect:/answer/"+id;
     }
 
     @GetMapping("/answer/{id}")
     public String answer(@PathVariable(value = "id") Long id ,GameDTO gameDTO,Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+
         model.addAttribute("gameDto", gameDTO);
         //TODO
         model.addAttribute("questions", questionService.findQuestionById(gameService.findGameById(id).getCurrentQuestionId()));

@@ -2,7 +2,9 @@ package spring.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import spring.dto.GameDTO;
 import spring.entity.Game;
 import spring.entity.Question;
 import spring.repository.GameRepository;
@@ -17,17 +19,13 @@ import java.util.Random;
 @Service
 public class GameService {
 
-    private TeamRepository teamRepository;
     private GameRepository gameRepository;
     private QuestionRepository questionRepository;
-    private UserRepository userRepository;
 
     @Autowired
-    public GameService(GameRepository gameRepository, TeamRepository teamRepository, QuestionRepository questionRepository, UserRepository userRepository) {
-        this.teamRepository = teamRepository;
+    public GameService(GameRepository gameRepository, QuestionRepository questionRepository) {
         this.gameRepository = gameRepository;
         this.questionRepository = questionRepository;
-        this.userRepository =  userRepository;
     }
 
 public Game findGameById(Long id){
@@ -41,8 +39,10 @@ public Game findGameById(Long id){
         return gameRepository.findAll();
     }
 
-    public void saveGame(Game game) {
-        gameRepository.save(game);
+    public void saveGame(GameDTO gameDTO) {
+        gameRepository.save(Game.builder()
+                .teamId(gameDTO.getTeamId())
+                .build());
 
     }
 
@@ -61,7 +61,7 @@ public Game findGameById(Long id){
 
         }
         //TODO shuffle
-        Collections.shuffle(questions, new Random(3));
+        Collections.shuffle(questions, new Random());
         return questions.get(gameRepository.getTeamScore(getLastGameId(username))+gameRepository.getViewerScore(getLastGameId(username)));
     }
 
@@ -74,6 +74,10 @@ public Game findGameById(Long id){
         game.setCurrentAnswer(answer);
         game.setCurrentQuestionId(questionId);
         gameRepository.save(game);
+    }
+
+    public void currentAnswer(UserDetails user, GameDTO gameDto){
+        setCurrentAnswer(gameDto.getCurrentAnswer(), getLastGameId(user.getUsername()), getShuffledQuestions(user.getUsername(),getLastGameId(user.getUsername())).getId());
     }
 
 
