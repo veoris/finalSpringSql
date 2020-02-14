@@ -1,6 +1,6 @@
 package spring.dto;
 
-import lombok.*;
+import lombok.Data;
 import spring.entity.Team;
 
 import java.util.List;

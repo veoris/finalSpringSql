@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import spring.entity.Team;
 import spring.repository.TeamRepository;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,6 @@ public class TeamService {
     }
 
     public List<Team> getAllTeams() {
-        //TODO checking for an empty user list
         return teamRepository.findAll();
     }
 
@@ -32,7 +32,7 @@ public class TeamService {
         teamRepository.save(team);
     }
 
-    public Long getId(Team team){
+    public Long getId(Team team) {
         return team.getId();
     }
 }

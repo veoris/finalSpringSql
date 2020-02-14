@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import spring.entity.Question;
+import spring.repository.sql.UserSQL;
+
 import java.util.List;
 
 @Repository
@@ -12,7 +14,7 @@ import java.util.List;
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     Question findByTitle(String login);
 
-    @Query(value = "select  * from questions where questions.id=?1", nativeQuery = true)
+    @Query(value = UserSQL.FIND_QUESTION, nativeQuery = true)
     Question findQuestionById(Long id);
 
     List<Question> findAll();

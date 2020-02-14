@@ -28,12 +28,10 @@ public class QuestionService {
     }
 
     public List<Question> getAllQuestions() {
-        //TODO checking for an empty user list
         return questionRepository.findAll();
     }
 
-    public void saveNewQuestion(QuestionDTO questionDTO)
-    {
+    public void saveNewQuestion(QuestionDTO questionDTO) {
         questionRepository.save(Question.builder()
                 .title(questionDTO.getTitle())
                 .description(questionDTO.getDescription())

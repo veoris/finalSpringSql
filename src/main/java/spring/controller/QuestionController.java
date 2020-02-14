@@ -10,7 +10,6 @@ import spring.service.GameService;
 import spring.service.QuestionService;
 
 
-
 @Controller
 public class QuestionController {
 
@@ -26,7 +25,6 @@ public class QuestionController {
     @GetMapping("/questions")
     public String getAllQuestions(Model model) {
         model.addAttribute("questions", questionService.getAllQuestions());
-
         return "questions";
     }
 
@@ -45,7 +43,6 @@ public class QuestionController {
             model.addAttribute("message", "Question is already exist");
             return "redirect:/config";
         }
-
         return "redirect:/config";
     }
 

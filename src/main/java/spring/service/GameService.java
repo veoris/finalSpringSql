@@ -9,8 +9,7 @@ import spring.entity.Game;
 import spring.entity.Question;
 import spring.repository.GameRepository;
 import spring.repository.QuestionRepository;
-import spring.repository.TeamRepository;
-import spring.repository.UserRepository;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,14 +27,11 @@ public class GameService {
         this.questionRepository = questionRepository;
     }
 
-public Game findGameById(Long id){
+    public Game findGameById(Long id) {
         return gameRepository.findGameById(id);
-
-}
+    }
 
     public List<Game> getAllGames() {
-        //TODO checking for an empty user list
-
         return gameRepository.findAll();
     }
 
@@ -43,53 +39,49 @@ public Game findGameById(Long id){
         gameRepository.save(Game.builder()
                 .teamId(gameDTO.getTeamId())
                 .build());
-
     }
 
     public Long getLastGameId(String username) {
         return gameRepository.getId(username);
     }
 
-    public List<String> getGameQuestions(String username, Long gameId){
+    public List<String> getGameQuestions(String username, Long gameId) {
         return gameRepository.getGameQuestions(username, gameId);
     }
 
-    public Question getShuffledQuestions(String username,Long gameId){
+    public Question getShuffledQuestions(String username, Long gameId) {
         List<Question> questions = new ArrayList<>();
-        for (String title:getGameQuestions(username,gameId)) {
+        for (String title : getGameQuestions(username, gameId)) {
             questions.add(questionRepository.findByTitle(title));
-
         }
-        //TODO shuffle
         Collections.shuffle(questions, new Random());
-        return questions.get(gameRepository.getTeamScore(getLastGameId(username))+gameRepository.getViewerScore(getLastGameId(username)));
+        return questions.get(gameRepository.getTeamScore(getLastGameId(username)) + gameRepository.getViewerScore(getLastGameId(username)));
     }
 
-    public Long getCurrentQuestionId(Long gameId){
+    public Long getCurrentQuestionId(Long gameId) {
         return gameRepository.getCurrentQuestionId(gameId);
     }
 
-    public void setCurrentAnswer(String answer, Long gameId, Long questionId){
+    public void setCurrentAnswer(String answer, Long gameId, Long questionId) {
         Game game = gameRepository.findGameById(gameId);
         game.setCurrentAnswer(answer);
         game.setCurrentQuestionId(questionId);
         gameRepository.save(game);
     }
 
-    public void currentAnswer(UserDetails user, GameDTO gameDto){
-        setCurrentAnswer(gameDto.getCurrentAnswer(), getLastGameId(user.getUsername()), getShuffledQuestions(user.getUsername(),getLastGameId(user.getUsername())).getId());
+    public void currentAnswer(UserDetails user, GameDTO gameDto) {
+        setCurrentAnswer(gameDto.getCurrentAnswer(), getLastGameId(user.getUsername()), getShuffledQuestions(user.getUsername(), getLastGameId(user.getUsername())).getId());
     }
 
-
-    public void increaseTeamScore(Long gameId){
+    public void increaseTeamScore(Long gameId) {
         Game game = gameRepository.findGameById(gameId);
-        game.setTeamScore(game.getTeamScore()+1);
+        game.setTeamScore(game.getTeamScore() + 1);
         gameRepository.save(game);
     }
 
-    public void increaseViewerScore(Long gameId){
+    public void increaseViewerScore(Long gameId) {
         Game game = gameRepository.findGameById(gameId);
-        game.setViewerScore(game.getViewerScore()+1);
+        game.setViewerScore(game.getViewerScore() + 1);
         gameRepository.save(game);
     }
 

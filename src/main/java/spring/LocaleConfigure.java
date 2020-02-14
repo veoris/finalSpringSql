@@ -10,14 +10,15 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
 import java.util.Locale;
 
 @Configuration
 public class LocaleConfigure implements WebMvcConfigurer {
 
     @Bean
-    public MessageSource messageSource(){
-        ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageResource = new ReloadableResourceBundleMessageSource();
         messageResource.setBasename("classpath:messages");
         messageResource.setDefaultEncoding("UTF-8");
         return messageResource;
@@ -29,12 +30,14 @@ public class LocaleConfigure implements WebMvcConfigurer {
         slr.setDefaultLocale(Locale.ENGLISH);
         return slr;
     }
+
     @Bean
     public LocaleChangeInterceptor localeInterceptor() {
         LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
         localeInterceptor.setParamName("lang");
         return localeInterceptor;
     }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeInterceptor());

@@ -1,6 +1,5 @@
 package spring.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,12 +37,10 @@ public class TeamController {
 
     @PostMapping("/team")
     public String addTeam(TeamDTO teamDTO, Model model) {
-
         try {
             teamService.saveTeam(Team.builder()
                     .name(teamDTO.getName())
                     .build());
-
         } catch (Exception ex) {
             model.addAttribute("message", "Team is already exist");
             return "team";

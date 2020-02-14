@@ -3,7 +3,6 @@ package spring.dto;
 import lombok.Data;
 import spring.entity.Question;
 
-
 import java.util.List;
 
 @Data

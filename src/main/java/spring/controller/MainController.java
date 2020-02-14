@@ -8,12 +8,16 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import spring.dto.UserDTO;
 import spring.service.TeamService;
 import spring.service.UserService;
 
 import static java.util.stream.Collectors.joining;
+
 @Slf4j
 @Controller
 @EnableGlobalMethodSecurity(
@@ -29,7 +33,6 @@ public class MainController {
         this.userService = userService;
         this.teamService = teamService;
     }
-
 
     @RequestMapping("/")
     public String getMainPage(Model model) {
@@ -52,23 +55,17 @@ public class MainController {
     }
 
     @GetMapping("/all_users")
-    //@PreAuthorize("hasAnyRole('ADMIN')")
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
 
         return "users";
     }
 
-
     @PostMapping("/choose")
     public String chooseTeam(UserDTO userDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
-        userService.setTeamId(user.getUsername(),userDTO.getTeamId());
+        userService.setTeamId(user.getUsername(), userDTO.getTeamId());
         return "redirect:/";
-
-
     }
-
-
 }

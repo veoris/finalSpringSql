@@ -15,11 +15,12 @@ import spring.service.UserService;
 
 @Configuration
 @EnableWebSecurity
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userService;
 
     @Autowired
-    public SecurityConfig( UserService userService) {
+    public SecurityConfig(UserService userService) {
         this.userService = userService;
     }
 
@@ -28,17 +29,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/readme.txt", "/css/*", "/registration").permitAll()
-               // .antMatchers("/").hasRole("USER")
-                //.antMatchers("/*").authenticated()
-               .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
-                //.csrf().disable()
                 .formLogin()
                 .loginPage("/login")
+                .failureForwardUrl("/error")
                 .permitAll()
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
                 .permitAll()
         ;
     }
