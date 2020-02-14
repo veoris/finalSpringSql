@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daaf76d6-d971-487b-babe-2d145467a93c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/spring/controller/admin/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/spring/repository/sql/UserSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/LocaleConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/LocaleConfigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/dto/QuestionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/dto/QuestionsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/dto/TeamsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/dto/TeamsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/entity/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/entity/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/entity/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/entity/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/repository/GameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/repository/QuestionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/repository/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/repository/TeamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spring/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spring/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/study/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/all-games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/all-games.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/all-games.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/all-games.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +302,7 @@
       <workItem from="1581387600185" duration="239000" />
       <workItem from="1581404695483" duration="1576000" />
       <workItem from="1581407507621" duration="2072000" />
-      <workItem from="1581662001136" duration="9458000" />
+      <workItem from="1581662001136" duration="9943000" />
     </task>
     <servers />
   </component>
@@ -392,38 +360,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581381974911" />
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1581679269540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269540" />
+    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1581679269540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269540" />
+    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1581679269540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269540" />
+    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1581679269540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269540" />
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1581679269541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269541" />
+    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1581679269541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269541" />
+    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1581679269541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
-    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1581678827277">
+    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269541" />
+    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1581679269541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581678827277" />
+    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581679269541" />
     <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1578694132083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
